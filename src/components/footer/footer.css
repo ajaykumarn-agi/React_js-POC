@@ -1,0 +1,21 @@
+.footerNew {
+    /* position: absolute; */
+    bottom: 30px;
+    font-family: 'Inter-Regular';
+}
+
+.allRights {
+    position: absolute;
+    bottom: 30px;
+    left: 40px;
+}
+
+.privacy {
+    position: absolute;
+    bottom: 30px;
+    right: 40px;
+}
+
+.arisglobalLink {
+    color: #1A3BDD !important;
+}

@@ -1,0 +1,64 @@
+.Login {
+    background: #fff;
+    border-radius: 4px !important;
+    font-family: 'Inter-Regular' !important;
+    width: 50%;
+    padding: 30px;
+    position: absolute;
+    top: 135px;
+    left: 180px;
+}
+
+.CompName {
+    color: #212934 !important;
+    display: block;
+    font-family: 'Inter-Bold' !important;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+.ProductNameSty {
+    color: #212934;
+    font-family: 'Inter-Bold' !important;
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 35px;
+}
+
+.ProductNameStyRight {
+    position: absolute;
+    font-size: 14px;
+    padding-left: 3px;
+    font-family: Inter-Bold !important;
+}
+
+.leftWhite_Bg {
+    height: 100%;
+    width: 65%;
+    top: 0px;
+    position: absolute;
+    background-color: rgba(255,255,255,0.92);
+}
+  
+.footerNew {
+    /* position: absolute; */
+    bottom: 30px;
+    font-family: 'Inter-Regular';
+}
+
+.allRights {
+    position: absolute;
+    bottom: 30px;
+    left: 40px;
+}
+
+.privacy {
+    position: absolute;
+    bottom: 30px;
+    right: 40px;
+}
+
+.arisglobalLink {
+    color: #1A3BDD !important;
+}

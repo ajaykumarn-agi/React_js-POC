@@ -5,9 +5,10 @@ import Footer from "../../components/footer/footer";
 import General from "./general/general";
 import Tenant from "./teanant/tenant";
 import CMS from "./cms/cms";
-import PublicSources from "./public_sources/public_sources";
 import MailServer from "./mail_server/mail_server";
 import './dashboard.css'
+import Card from 'react-bootstrap/Card';
+import PSource from "./publicsources/publicsources";
 class Dashboard extends Component {
 
 
@@ -17,7 +18,9 @@ class Dashboard extends Component {
 
         return (
 <div>
-<Header />
+    
+<Card.Header><Header/></Card.Header>
+
 
             <Tabs className="dashboard_body">
                 <div label="General">
@@ -30,13 +33,14 @@ class Dashboard extends Component {
                     <CMS />
                 </div>
                 <div label="Public Sources">
-                    <PublicSources />
+                    <PSource/>
                 </div>
                 <div label="Mail Server">
                     <MailServer />
                 </div>
             </Tabs>
-            <Footer />
+
+<Card.Header><Footer/></Card.Header>
             </div>
 
         )

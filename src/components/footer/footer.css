@@ -2,12 +2,19 @@
     /* position: absolute; */
     bottom: 30px;
     font-family: 'Inter-Regular';
+    margin-top: 1rem;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }
 
 .allRights {
     position: absolute;
     bottom: 30px;
     left: 40px;
+    
 }
 
 .privacy {

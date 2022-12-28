@@ -3,7 +3,7 @@ import Tabs from "../../components/Tabs";
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
 import General from "./general/general";
-import Tenant from "./teanant/tanant";
+import Tenant from "./teanant/tenant";
 import CMS from "./cms/cms";
 import PublicSources from "./public_sources/public_sources";
 import MailServer from "./mail_server/mail_server";
@@ -18,6 +18,7 @@ class Dashboard extends Component {
         return (
 <div>
 <Header />
+
             <Tabs className="dashboard_body">
                 <div label="General">
                     <General />

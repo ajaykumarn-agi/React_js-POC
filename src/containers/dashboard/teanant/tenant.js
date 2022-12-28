@@ -1,7 +1,8 @@
-import React,  { useState } from "react";
+import React from "react";
 import DataTable from 'react-data-table-component';
-import { Button, Modal } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import './tenant.css'
+import MyModalComponent from "./mymodal.component";
 
 const columns = [
     {
@@ -51,51 +52,59 @@ const data = [
     },
 ]
 
+
+
 function Tenant() {
+    let modalData = {
+        title: 'New Tenant',
+      };
+      const [modalIsOpen, setIsOpen] = React.useState(false);
 
-    const [show, setShow] = useState(false);
+    function openFromParent() {
+        modalData.title='Edit Tenant'
+        setIsOpen(true);
+        
+      }
+      
+    
+      function handleCloseModal(event, data) {
+        console.log(event, data);
+        setIsOpen(false);
+      }
+    
+      function handleAfterOpen(event, data) {
+        console.log(event, data);
+      }
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+      
     return (
         <>
-        <Modal
-        show={show}
-        onHide={handleClose}
-        backdrop="static"
-        keyboard={false}
-      >
-        <Modal.Header closeButton>
-          <Modal.Title>Modal title</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          I will not close if you click outside me. Don't even try to press
-          escape key.
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary">Understood</Button>
-        </Modal.Footer>
-      </Modal>
+            
 
-        <DataTable
-            title={
-                <div> Tentants
-                    <span class="btnRight">
-                        <Button variant="primary" size="sm"  onClick={handleShow}>Create</Button>
-                        &nbsp;
-                        <Button variant="outline-dark" size="sm">Close</Button>
-                    </span>
-                </div>
-            }
-            columns={columns}
-            data={data}
-            pagination
-            highlightOnHover
-            pointerOnHover
-        />
+<MyModalComponent
+        dynData={modalData}
+        IsModalOpened={modalIsOpen}
+        onCloseModal={handleCloseModal}
+        onAfterOpen={handleAfterOpen}
+      />
+
+
+            <DataTable
+                title={
+                    <div> Tentants
+                        <span class="btnRight">
+                            <Button variant="primary" size="sm" onClick={openFromParent}>Create</Button>
+                            &nbsp;
+                            <Button variant="outline-dark" size="sm">Close</Button>
+                        </span>
+                    </div>
+                }
+                columns={columns}
+                data={data}
+                pagination
+                highlightOnHover
+                pointerOnHover
+            />
         </>
     );
 }

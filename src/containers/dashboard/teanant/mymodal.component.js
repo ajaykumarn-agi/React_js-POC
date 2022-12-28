@@ -2,18 +2,24 @@ import { Button } from 'react-bootstrap';
 import React from 'react';
 import Modal from 'react-modal';
 import Tabs from '../../../components/Tabs';
+import DefaultTenCre from './default';
+import DbDetail from './dbDetail';
+import License from './license';
+import TenSchedulers from './tenant_schedulers';
+import IdpTenant from './idpTenant';
 
 const customStyles = {
   content: {
-    top: '20%',
+    top: '50%',
     left: '50%',
     right: 'auto',
     width: '90%',
-    innerHeight: '70%',
+    innerHeight: '100%',
     outerHeight: '50%',
-    bottom: 'auto',
     marginRight: '-50%',
-    transform: 'translate(-50%, -50%)'
+    transform: 'translate(-50%, -50%)',
+    overflow: 'scroll'
+
   }
 };
 
@@ -29,49 +35,39 @@ function MyModalComponent(props) {
 
   return (
     <div>
-      <Modal
+      <Modal scrollable={true}
         isOpen={props.IsModalOpened}
         onAfterOpen={e => afterOpenModal(e)}
         style={customStyles}
         ariaHideApp={true}
       >
         <h2>{props.dynData.title}</h2>
-        <div>
-          <Tabs>
-            <div label="Default">
-              <p>this is default body</p>
-              <div class="container">
-                <div class="row">
-                  <div class="col-sm">
-                    One of two columns
-                  </div>
-                  <div class="col-sm">
-                    One of two columns
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div label="DB Details">
-              <p>this is DB Details body</p>
-            </div>
-            <div label="License">
-              <p>this is License body</p>
-            </div>
-            <div label="Schedulers">
-              <p>this is Schedulers body</p>
-            </div>
-            <div label="IdP">
-              <p>this is IdP body</p>
-            </div>
-          </Tabs>
-        </div>
-
         <span class="btnRight">
-          <Button variant="primary" size="sm">Create</Button>
+          <Button variant="primary" size="sm">Save</Button>
           &nbsp;
           <Button variant="outline-dark" size="sm" onClick={e => onModalClose(e)}>Close</Button>
         </span>
-
+        <div>
+          <Tabs>
+            <div label="Default">
+              <div class="container">
+               <DefaultTenCre/>
+              </div>
+            </div>
+            <div label="DB Details">
+              <DbDetail/>
+            </div>
+            <div label="License">
+              <License/>
+            </div>
+            <div label="Schedulers">
+              <TenSchedulers/>
+            </div>
+            <div label="IdP">
+              <IdpTenant/>
+            </div>
+          </Tabs>
+        </div>
       </Modal>
     </div>
   );

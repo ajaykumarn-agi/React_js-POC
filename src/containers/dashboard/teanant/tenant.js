@@ -3,12 +3,29 @@ import DataTable from 'react-data-table-component';
 import { Button } from 'react-bootstrap';
 import './tenant.css'
 import MyModalComponent from "./mymodal.component";
+import { TenantAPI } from "../../../shared/apis/tenantApi";
+import axios from "axios";
 
+
+
+
+
+function Tenant() {
+    
 const columns = [
     {
         name: 'Tenant ID',
         selector: row => row.teantId,
         sortable: true,
+        cell: (row) => (
+            <Button href onClick={openFromParent}>
+                {row.teantId}
+            </Button>
+        ),
+        
+        ignoreRowClick: true,
+        allowOverflow: true,
+        button: true,
     },
     {
         name: 'Tenant Name',
@@ -38,12 +55,12 @@ const data = [
         teantId: 1,
         tenantName: 'Beetlejuice',
         status: '1988',
-        description: '',
-        dateCreated: '',
+        description: 'test',
+        dateCreated: '12231',
         dateModified: '',
     },
     {
-        teantId: 1,
+        teantId: 2,
         tenantName: 'Beetlejuice',
         status: '1988',
         description: '',
@@ -51,7 +68,7 @@ const data = [
         dateModified: '',
     },
     {
-        teantId: 1,
+        teantId: 3,
         tenantName: 'Beetlejuice',
         status: '1988',
         description: '',
@@ -59,7 +76,7 @@ const data = [
         dateModified: '',
     },
     {
-        teantId: 1,
+        teantId: 4,
         tenantName: 'Beetlejuice',
         status: '1988',
         description: '',
@@ -67,7 +84,7 @@ const data = [
         dateModified: '',
     },
     {
-        teantId: 1,
+        teantId: 5,
         tenantName: 'Beetlejuice',
         status: '1988',
         description: '',
@@ -75,7 +92,7 @@ const data = [
         dateModified: '',
     },
     {
-        teantId: 1,
+        teantId: 6,
         tenantName: 'Beetlejuice',
         status: '1988',
         description: '',
@@ -149,9 +166,6 @@ const data = [
 
 ]
 
-
-
-function Tenant() {
     let modalData = {
         title: 'New Tenant',
       };
@@ -160,17 +174,34 @@ function Tenant() {
     function openFromParent() {
         modalData.title='Edit Tenant'
         setIsOpen(true);
-        
+
       }
+
+      
 
     
       function handleCloseModal(event, data) {
         console.log(event, data);
+        const fetchData = async () => {
+            var options = {
+              method: "GET",
+              url: "http://localhost:8090/tenants",
+              headers: {
+                accept: "application/json",
+                "x-rapidapi-host": "matchilling-chuck-norris-jokes-v1.p.rapidapi.com",
+                "x-rapidapi-key": "ffc2438edbmsh0a88b634e6e77a7p123125jsnfb163d4d72f7",
+              },
+            };
+            console.log(options)
+            let data = await axios.request(options);
+            console.log("data,", data.data);
         setIsOpen(false);
       }
+    }
     
       function handleAfterOpen(event, data) {
         console.log(event, data);
+        TenantAPI.getAll();
       }
 
       

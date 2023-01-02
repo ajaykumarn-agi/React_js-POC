@@ -3,7 +3,7 @@ import { Row, FormGroup, FormControl, FormLabel, Button, FormText } from 'react-
 import Card from 'react-bootstrap/Card';
 import companyLogo from '../../shared/resources/aglogo_agBalance.png';
 import './login.css';
-import { isEmail, isEmpty, isLength, isContainWhiteSpace } from '../../shared/validator';
+import { isusername, isEmpty, isLength, isContainWhiteSpace } from '../../shared/validator';
 
 class Login extends Component {
 
@@ -36,10 +36,10 @@ class Login extends Component {
         let errors = {};
         const { formData } = this.state;
 
-        if (isEmpty(formData.email)) {
-            errors.email = "Email can't be blank";
-        } else if (!isEmail(formData.email)) {
-            errors.email = "Please enter a valid email";
+        if (isEmpty(formData.username)) {
+            errors.username = "username can't be blank";
+        } else if (!isusername(formData.username)) {
+            errors.username = "Please enter a valid username";
         }
 
         if (isEmpty(formData.password)) {
@@ -79,51 +79,54 @@ class Login extends Component {
         const { errors, formSubmitted } = this.state;
 
         return (
-            <div class="leftWhite_Bg">
-                <div class="agLogoLeft">
-                    <img src={companyLogo} alt="ArisGlobal. logo" />
-                </div>
-                <div className="Login">
-                    <Card style={{ border: "none", boxShadow: "none", width: '28rem' }} >
-                        <Card.Body>
-                            <Card.Title className="CompName">ArisGlobal</Card.Title>
-                            <Card.Text className="ProductNameSty">
-                                LifeSphere <span className="ProductNameStyRight">®</span>
-                            </Card.Text>
-                            <p style={{ fontSize: '.75rem', color: "#495f7b" }} >Signal and Risk Management-Tenant Config</p>
+            <div className="LoginbackgroundImg">
+                <div className="leftWhite_Bg">
+                    <span class="agLogoLeft">
+                        <img src={companyLogo} alt="ArisGlobal. logo" />
+                    </span>
+                    <div className="Login">
+                        <Card style={{ border: "none", boxShadow: "none" }} >
+                            <Card.Body>
+                                <Card.Title className="CompName">ArisGlobal</Card.Title>
+                                <Card.Text className="ProductNameSty">
+                                    LifeSphere <span className="ProductNameStyRight">®</span>
+                                </Card.Text>
+                                <p style={{ fontSize: '.75rem', color: "#495f7b" }} >Signal and Risk Management-Tenant Config</p>
 
-                            <Row>
-                                <form onSubmit={this.login}>
-                                    <FormGroup controlId="email" validationState={formSubmitted ? (errors.email ? 'error' : 'success') : null}>
-                                        <FormLabel>Email</FormLabel>
-                                        <FormControl type="text" name="email" placeholder="Enter your email" onChange={this.handleInputChange} />
-                                        {errors.email &&
-                                            <FormText>{errors.email}</FormText>
-                                        }
-                                    </FormGroup>
-                                    <br />
-                                    <FormGroup controlId="password" validationState={formSubmitted ? (errors.password ? 'error' : 'success') : null}>
-                                        <FormLabel>Password</FormLabel>
-                                        <FormControl type="password" name="password" placeholder="Enter your password" onChange={this.handleInputChange} />
-                                        {errors.password &&
-                                            <FormText>{errors.password}</FormText>
-                                        }
-                                    </FormGroup>
-                                    <br />
-                                    <Button type="submit" bsStyle="primary">Sign-In</Button>
-                                </form>
-                            </Row>
-                        </Card.Body>
-                    </Card>
+                                <Row>
+                                    <form onSubmit={this.login}>
+                                        <FormGroup controlId="username" validationState={formSubmitted ? (errors.username ? 'error' : 'success') : null}>
+                                            <FormLabel>User Name</FormLabel>
+                                            <FormControl type="text" name="username" placeholder="Enter your username" onChange={this.handleInputChange} />
+                                            {errors.username &&
+                                                <FormText>{errors.username}</FormText>
+                                            }
+                                        </FormGroup>
+                                        <br />
+                                        <FormGroup controlId="password" validationState={formSubmitted ? (errors.password ? 'error' : 'success') : null}>
+                                            <FormLabel>Password</FormLabel>
+                                            <FormControl type="password" name="password" placeholder="Enter your password" onChange={this.handleInputChange} />
+                                            {errors.password &&
+                                                <FormText>{errors.password}</FormText>
+                                            }
+                                        </FormGroup>
+                                        <br />
+                                        <Button type="submit" bsStyle="primary">Sign-In</Button>
+                                    </form>
+                                </Row>
+                            </Card.Body>
+                        </Card>
 
-                </div>
-                <div class="footerNew">
-                    <div class="allRights">
-                        <label >© ArisGlobal 2022 All rights reserved</label>
                     </div>
-                    <div class="privacy">
-                        <label >Privacy Policy  | </label>
-                        <label class="arisglobalLink">www.ArisGlobal.com</label>
+
+                    <div class="footerNew">
+                        <div class="allRights">
+                            <label >© ArisGlobal 2023 All rights reserved</label>
+                        </div>
+                        <div class="privacy">
+                            <label >Privacy Policy  | </label>
+                            <label class="arisglobalLink">www.ArisGlobal.com</label>
+                        </div>
                     </div>
                 </div>
             </div>

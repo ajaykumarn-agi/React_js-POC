@@ -1,21 +1,22 @@
 import { Button } from 'react-bootstrap';
 import React from 'react';
 import Modal from 'react-modal';
-import Tabs from '../../../components/Tabs';
 import DefaultTenCre from './default';
 import DbDetail from './dbDetail';
 import License from './license';
 import TenSchedulers from './tenant_schedulers';
 import IdpTenant from './idpTenant';
+import Tabs from '../../../components/Tabs';
+
 
 const customStyles = {
   content: {
-    top: '50%',
+    top: '40%',
     left: '50%',
     right: 'auto',
     width: '90%',
-    innerHeight: '100%',
-    outerHeight: '50%',
+    innerHeight: '120%',
+    outerHeight: '80%',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
     overflow: 'scroll'
@@ -41,12 +42,15 @@ function MyModalComponent(props) {
         style={customStyles}
         ariaHideApp={true}
       >
-        <h2>{props.dynData.title}</h2>
+        <div>
+        <h2>{props.dynData.title}
         <span class="btnRight">
           <Button variant="primary" size="sm">Save</Button>
           &nbsp;
           <Button variant="outline-dark" size="sm" onClick={e => onModalClose(e)}>Close</Button>
         </span>
+        </h2>
+        </div>
         <div>
           <Tabs>
             <div label="Default">
@@ -66,7 +70,7 @@ function MyModalComponent(props) {
             <div label="IdP">
               <IdpTenant/>
             </div>
-          </Tabs>
+          </Tabs> 
         </div>
       </Modal>
     </div>

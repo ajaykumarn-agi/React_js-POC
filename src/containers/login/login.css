@@ -43,19 +43,17 @@
   
 .footerNew {
     /* position: absolute; */
-    bottom: 30px;
-    font-family: 'Inter-Regular';
+    bottom: 10px;
+    font-family: 'sans-serif';
 }
 
 .allRights {
     position: absolute;
-    bottom: 30px;
     left: 40px;
 }
 
 .privacy {
     position: absolute;
-    bottom: 30px;
     right: 40px;
 }
 

@@ -50,6 +50,103 @@ const data = [
         dateCreated: '',
         dateModified: '',
     },
+    {
+        teantId: 1,
+        tenantName: 'Beetlejuice',
+        status: '1988',
+        description: '',
+        dateCreated: '',
+        dateModified: '',
+    },
+    {
+        teantId: 1,
+        tenantName: 'Beetlejuice',
+        status: '1988',
+        description: '',
+        dateCreated: '',
+        dateModified: '',
+    },
+    {
+        teantId: 1,
+        tenantName: 'Beetlejuice',
+        status: '1988',
+        description: '',
+        dateCreated: '',
+        dateModified: '',
+    },
+    {
+        teantId: 1,
+        tenantName: 'Beetlejuice',
+        status: '1988',
+        description: '',
+        dateCreated: '',
+        dateModified: '',
+    },
+    {
+        teantId: 1,
+        tenantName: 'Beetlejuice',
+        status: '1988',
+        description: '',
+        dateCreated: '',
+        dateModified: '',
+    },
+    {
+        teantId: 1,
+        tenantName: 'Beetlejuice',
+        status: '1988',
+        description: '',
+        dateCreated: '',
+        dateModified: '',
+    },
+    {
+        teantId: 1,
+        tenantName: 'Beetlejuice',
+        status: '1988',
+        description: '',
+        dateCreated: '',
+        dateModified: '',
+    },
+    {
+        teantId: 1,
+        tenantName: 'Beetlejuice',
+        status: '1988',
+        description: '',
+        dateCreated: '',
+        dateModified: '',
+    },
+    {
+        teantId: 1,
+        tenantName: 'Beetlejuice',
+        status: '1988',
+        description: '',
+        dateCreated: '',
+        dateModified: '',
+    },
+    {
+        teantId: 1,
+        tenantName: 'Beetlejuice',
+        status: '1988',
+        description: '',
+        dateCreated: '',
+        dateModified: '',
+    },
+    {
+        teantId: 1,
+        tenantName: 'Beetlejuice',
+        status: '1988',
+        description: '',
+        dateCreated: '',
+        dateModified: '',
+    },
+    {
+        teantId: 1,
+        tenantName: 'Beetlejuice',
+        status: '1988',
+        description: '',
+        dateCreated: '',
+        dateModified: '',
+    },
+
 ]
 
 
@@ -65,7 +162,7 @@ function Tenant() {
         setIsOpen(true);
         
       }
-      
+
     
       function handleCloseModal(event, data) {
         console.log(event, data);
@@ -79,6 +176,7 @@ function Tenant() {
       
     return (
         <>
+       
             
 
 <MyModalComponent
@@ -89,9 +187,9 @@ function Tenant() {
       />
 
 
-            <DataTable
+            <DataTable 
                 title={
-                    <div> Tentants
+                    <div > <span className="newSubHeading">Tentants</span>
                         <span class="btnRight">
                             <Button variant="primary" size="sm" onClick={openFromParent}>Create</Button>
                             &nbsp;
@@ -105,6 +203,7 @@ function Tenant() {
                 highlightOnHover
                 pointerOnHover
             />
+  
         </>
     );
 }

@@ -5,9 +5,9 @@ import './header.css';
 function Header() {
   return (
     <div>
-      <div class="logo_New">
-        <div class="Logo_Icon">
-          <a id="appHomeLink" name="appHomeLink" href="/lssrm-console/servlet/general?currentTab=1" class="fl  nooverflow">
+      <div className="logo_New">
+        <div className="Logo_Icon">
+          <a id="appHomeLink" name="appHomeLink" href="/lssrm-console/servlet/general?currentTab=1" className="fl  nooverflow">
             <img src={productLogo} alt="" >
             </img>
           </a>

@@ -3,13 +3,13 @@ import './footer.css'
 
 function Footer() {
   return (
-    <div class="footerNew">
-      <div class="allRights">
+    <div className="footerNew">
+      <div className="allRights">
         <label >© ArisGlobal 2023 All rights reserved</label>
       </div>
-      <div class="privacy">
+      <div className="privacy">
         <label >Privacy Policy  | </label>
-        <label class="arisglobalLink">www.ArisGlobal.com</label>
+        <label className="arisglobalLink">www.ArisGlobal.com</label>
       </div>
     </div>
   );

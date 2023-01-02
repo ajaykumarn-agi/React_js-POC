@@ -2,19 +2,22 @@ import React from "react";
 import MangoConfig from "./mangoConfig";
 import DataConfig from "./dataConfig";
 import Tabs from "../../../components/Tabs";
+import Card from 'react-bootstrap/Card';
 
 function PSource() {
   return (
     <div>
-              <Tabs className="dashboard_body">
-                  <div label="MangoConfig">
-                      <MangoConfig />
-                  </div>
-                  <div label="DataConfig">
-                      <DataConfig />
-                  </div>
-              </Tabs>
-            </div>
+      <Card>
+        <Tabs className="dashboard_body">
+          <div label="MangoConfig">
+            <MangoConfig />
+          </div>
+          <div label="DataConfig">
+            <DataConfig />
+          </div>
+        </Tabs>
+      </Card>
+    </div>
 
   );
 }

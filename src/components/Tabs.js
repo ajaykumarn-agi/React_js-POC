@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Tab from "./Tab";
+import Breadcrumb from 'react-bootstrap/Breadcrumb';
+import { CiHome } from "react-icons/ci";
 
 class Tabs extends Component {
   static propTypes = {
@@ -39,9 +41,14 @@ class Tabs extends Component {
                 label={label}
                 onClick={onClickTabItem}
               />
+
             );
           })}
         </ol>
+        <Breadcrumb>
+          <Breadcrumb.Item ><CiHome /></Breadcrumb.Item>
+          <Breadcrumb.Item active>{activeTab}</Breadcrumb.Item>
+        </Breadcrumb>
         <div className="tab-content">
           {children.map((child) => {
             if (child.props.label !== activeTab) return undefined;

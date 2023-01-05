@@ -6,8 +6,9 @@ import General from "./general/general";
 import Tenant from "./teanant/tenant";
 import CMS from "./cms/cms";
 import MailServer from "./mail_server/mail_server";
-import './dashboard.css'
 import PSource from "./publicsources/publicsources";
+import './dashboard.css'
+
 
 
 class Dashboard extends Component {

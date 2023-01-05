@@ -2,7 +2,7 @@ import axios from "axios"
 
 export const api = axios.create({
     credentials: false,
-  baseURL: "http://192.168.253.56:8090",
+  baseURL: "http://localhost:8080/agBalance-ConfigTool/servlet/rest",
 })
 
 // defining a custom error handler for all APIs

@@ -1,17 +1,15 @@
-
 import { api } from "./configs/axiosConfigs"
 import { defineCancelApiObject } from "./configs/axiosUtils"
 
 export const TenantAPI = {
  
   getAll: async function (cancel = false) {
-    const response = await api.request({
-      url: "/tenants",
+    await api.request({
+      url: "/test",
       method: "GET",
 
-    })
-    console.log(response);
-    return response;
+    }).then(
+        response => {return response.data})
   },
 
   }

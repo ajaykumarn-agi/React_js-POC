@@ -19,7 +19,8 @@ function Tenant() {
 
     let modalData = {
         title: 'New Tenant',
-        selectedRow:''
+        selectedRow:'',
+        isNew:true
     };
 
     const getTenantList = async () => {
@@ -85,7 +86,6 @@ function Tenant() {
 
 
     function openFromParent() {
-        modalData.title = 'New Tenant';
         setParentData(modalData)
         setIsOpen(true);
 
@@ -94,6 +94,7 @@ function Tenant() {
     function openFromParentRow(event, data) {
         modalData.title = 'Edit Tenant';
         modalData.selectedRow = data;
+        modalData.isNew = false;
         console.log(data);
         // modalData.selectedRow = row;
         setParentData(modalData)

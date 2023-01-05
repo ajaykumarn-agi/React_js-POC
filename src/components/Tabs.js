@@ -32,17 +32,20 @@ class Tabs extends Component {
       <div className="tabs">
         <ol className="tab-list">
           {children.map((child) => {
-            const { label } = child.props;
+            console.log(child)
+            if (child.props != undefined) {
+              const { label } = child.props;
 
-            return (
-              <Tab
-                activeTab={activeTab}
-                key={label}
-                label={label}
-                onClick={onClickTabItem}
-              />
+              return (
+                <Tab
+                  activeTab={activeTab}
+                  key={label}
+                  label={label}
+                  onClick={onClickTabItem}
+                />
 
-            );
+              );
+            }
           })}
         </ol>
         <Breadcrumb>
@@ -51,7 +54,8 @@ class Tabs extends Component {
         </Breadcrumb>
         <div className="tab-content">
           {children.map((child) => {
-            if (child.props.label !== activeTab) return undefined;
+            if (child.props == undefined || child.props.label !== activeTab)
+              return undefined;
             return child.props.children;
           })}
         </div>

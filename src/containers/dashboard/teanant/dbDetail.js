@@ -13,7 +13,7 @@ function DbDetail({selectedRow}) {
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridHost">
           <Form.Label>Host</Form.Label>
-          <Form.Control type="text"/>
+          <Form.Control type="text"  value={selectedRow.tenantDbDetails.msHost}/>
         </Form.Group>
 
         <Form.Group as={Col} controlId="formGridPor">

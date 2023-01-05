@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
-function TenSchedulers() {
+function TenSchedulers( {selectedRow} ) {
 
     return (
         <div>
@@ -12,6 +12,7 @@ function TenSchedulers() {
                     <Form.Control
                         as="textarea"
                         style={{ height: '100px' }}
+                        value = {selectedRow.schedulerConfig.configuration}
                         />
                     </Card.Text>
                 </Card.Body>

@@ -27,6 +27,7 @@ const customStyles = {
 function MyModalComponent(props) {
   function afterOpenModal(e) {
     console.log(props)
+    const isNew = props.dynData.isNew;
     props.onAfterOpen(e, 'After Modal Opened');
   }
 
@@ -44,34 +45,45 @@ function MyModalComponent(props) {
         ariaHideApp={true}
       >
         <div>
-        <h2>{props.dynData.title} {props.dynData.selectedRow !== undefined ?   ' - ' + props.dynData.selectedRow.tenantId : ''}
-        <span class="btnRight">
-          <Button variant="primary" size="sm">Save</Button>
-          &nbsp;
-          <Button variant="outline-dark" size="sm" onClick={e => onModalClose(e)}>Close</Button>
-        </span>
-        </h2>
+          <h2>{props.dynData.title} {props.dynData.selectedRow !== undefined ? ' - ' + props.dynData.selectedRow.tenantId : ''}
+            <span class="btnRight">
+              <Button variant="primary" size="sm">Save</Button>
+              &nbsp;
+              <Button variant="outline-dark" size="sm" onClick={e => onModalClose(e)}>Close</Button>
+            </span>
+          </h2>
         </div>
         <div>
           <Tabs>
+
+
+
             <div label="Default">
               <div class="container">
-               <DefaultTenCre selectedRow={props.dynData.selectedRow}/>
+                <DefaultTenCre selectedRow={props.dynData.selectedRow} />
               </div>
             </div>
-            <div label="DB Details">
-              <DbDetail  selectedRow={props.dynData.selectedRow}/>
-            </div>
-            <div label="License">
-              <License/>
-            </div>
-            <div label="Schedulers">
-              <TenSchedulers  selectedRow={props.dynData.selectedRow}/>
-            </div>
-            <div label="IdP">
-              <IdpTenant  selectedRow={props.dynData.selectedRow}/>
-            </div>
-          </Tabs> 
+            {props.dynData.isNew == false ?
+              <div label="DB Details">
+                <DbDetail selectedRow={props.dynData.selectedRow} />
+              </div>
+              : ''}
+            {props.dynData.isNew == false ?
+              <div label="License">
+                <License />
+              </div>
+              : ''}
+            {props.dynData.isNew == false ?
+              <div label="Schedulers">
+                <TenSchedulers selectedRow={props.dynData.selectedRow} />
+              </div> : ''}
+            {props.dynData.isNew == false ?
+              <div label="IdP">
+                <IdpTenant selectedRow={props.dynData.selectedRow} />
+              </div>
+              : ''}
+
+          </Tabs>
         </div>
       </Modal>
     </div>

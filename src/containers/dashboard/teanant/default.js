@@ -16,15 +16,15 @@ function DefaultTenCre({selectedRow}){
 
         <Form.Group as={Col} controlId="formGridTenantName">
           <Form.Label>Tenant Name</Form.Label>
-          <Form.Control type="text" placeholder="Enter tenant name" />
+          <Form.Control type="text" placeholder="Enter tenant name" value={selectedRow.name}/>
         </Form.Group>
       </Row>
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridStatus">
           <Form.Label>Status</Form.Label>
-          <Form.Select defaultValue="Choose...">
-            <option>Choose...</option>
-            <option>...</option>
+          <Form.Select defaultValue="Inactive" value={selectedRow.tenantStatus}>
+            <option>Active</option>
+            <option>Inactive</option>
           </Form.Select>
         </Form.Group>
 
@@ -33,6 +33,7 @@ function DefaultTenCre({selectedRow}){
                 <Form.Control
                 as="textarea"
                 style={{ height: '100px' }}
+                value={selectedRow.description}
                 />
           </Form.Group>
       </Row>

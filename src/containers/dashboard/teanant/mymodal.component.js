@@ -56,20 +56,20 @@ function MyModalComponent(props) {
           <Tabs>
             <div label="Default">
               <div class="container">
-               <DefaultTenCre/>
+               <DefaultTenCre selectedRow={props.dynData.selectedRow}/>
               </div>
             </div>
             <div label="DB Details">
-              <DbDetail/>
+              <DbDetail  selectedRow={props.dynData.selectedRow}/>
             </div>
             <div label="License">
               <License/>
             </div>
             <div label="Schedulers">
-              <TenSchedulers/>
+              <TenSchedulers  selectedRow={props.dynData.selectedRow}/>
             </div>
             <div label="IdP">
-              <IdpTenant/>
+              <IdpTenant  selectedRow={props.dynData.selectedRow}/>
             </div>
           </Tabs> 
         </div>

@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card';
 
 
 
-function DbDetail() {
+function DbDetail({selectedRow}) {
   return (
     <Form data-spy="scroll">
       <fieldset title='LSSRM DB'>

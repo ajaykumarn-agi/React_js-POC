@@ -1,6 +1,6 @@
 import Form from 'react-bootstrap/Form';
 
-function IdpTenant() {
+function IdpTenant({selectedRow}) {
   return (
     <Form>
       <Form.Group className="mt-3 mb-3" controlId="exampleForm.ControlInput1">

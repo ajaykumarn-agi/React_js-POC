@@ -4,14 +4,14 @@ import Row from 'react-bootstrap/Row';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
 
-function DefaultTenCre() {
+function DefaultTenCre({selectedRow}){
   return (
     <Form>
       <fieldset title='Default'>
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridTenantId">
           <Form.Label>Tenant ID</Form.Label>
-          <Form.Control type="text" placeholder="Enter tenant id" />
+          <Form.Control type="text" placeholder="Enter tenant id" value={selectedRow.tenantId}/>
         </Form.Group>
 
         <Form.Group as={Col} controlId="formGridTenantName">

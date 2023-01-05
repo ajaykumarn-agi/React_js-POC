@@ -24,7 +24,7 @@ const data = [
     },
 ]
 
-function DataSource() {
+function DataSource({selectedRow}) {
     return (
         <DataTable
             columns={columns}

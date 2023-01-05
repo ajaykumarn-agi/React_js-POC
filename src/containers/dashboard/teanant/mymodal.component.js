@@ -26,6 +26,7 @@ const customStyles = {
 
 function MyModalComponent(props) {
   function afterOpenModal(e) {
+    console.log(props)
     props.onAfterOpen(e, 'After Modal Opened');
   }
 
@@ -43,7 +44,7 @@ function MyModalComponent(props) {
         ariaHideApp={true}
       >
         <div>
-        <h2>{props.dynData.title}
+        <h2>{props.dynData.title} {props.dynData.selectedRow !== undefined ?   ' - ' + props.dynData.selectedRow.tenantId : ''}
         <span class="btnRight">
           <Button variant="primary" size="sm">Save</Button>
           &nbsp;

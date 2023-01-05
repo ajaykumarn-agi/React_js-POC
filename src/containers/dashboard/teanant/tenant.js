@@ -14,6 +14,13 @@ function Tenant() {
     const [loading, setLoading] = useState(false);
     const [modalIsOpen, setIsOpen] = React.useState(false);
     const [tenants, setTenants] = useState([]);
+    const [parentData, setParentData] = useState({});
+    
+
+    let modalData = {
+        title: 'New Tenant',
+        selectedRow:''
+    };
 
     const getTenantList = async () => {
         setLoading(true);
@@ -32,11 +39,13 @@ function Tenant() {
 
     const columns = [
         {
-            name: 'Tenant ID',
+            title: 'Tenant ID',
             selector: row => row.tenantId,
             sortable: true,
             cell: (row) => (
-                <a  style={{float : 'left', paddingRight : '5px',color:'blue'}} onClick={openFromParent}>
+                <a  style={{float : 'left', paddingRight : '5px',color:'blue'}} onClick={
+                    (e) => openFromParentRow(e,row)
+                    }>
                     {row.tenantId}
                 </a>
             ),
@@ -68,9 +77,7 @@ function Tenant() {
         }
     ];
 
-    let modalData = {
-        title: 'New Tenant',
-    };
+    
 
 
 
@@ -78,7 +85,18 @@ function Tenant() {
 
 
     function openFromParent() {
-        modalData.title = 'Edit Tenant'
+        modalData.title = 'New Tenant';
+        setParentData(modalData)
+        setIsOpen(true);
+
+    }
+
+    function openFromParentRow(event, data) {
+        modalData.title = 'Edit Tenant';
+        modalData.selectedRow = data;
+        console.log(data);
+        // modalData.selectedRow = row;
+        setParentData(modalData)
         setIsOpen(true);
 
     }
@@ -110,7 +128,7 @@ function Tenant() {
 
 
             <MyModalComponent
-                dynData={modalData}
+                dynData={parentData}
                 IsModalOpened={modalIsOpen}
                 onCloseModal={handleCloseModal}
                 onAfterOpen={handleAfterOpen}
@@ -119,7 +137,7 @@ function Tenant() {
 
             <DataTable
                 title={
-                    <div > <span className="newSubHeading">Tentants</span>
+                    <div > <span className="newSubHeading">Tenants</span>
                         <span class="btnRight">
                             <Button variant="primary" size="sm" onClick={openFromParent}>Create</Button>
                             &nbsp;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect }from "react";
+import React, { useState, useEffect } from "react";
 import DataTable from 'react-data-table-component';
 import { Button } from 'react-bootstrap';
 import './tenant.css'
@@ -10,97 +10,114 @@ import axios from "axios";
 
 
 function Tenant() {
-    
-const columns = [
-    {
-        name: 'Tenant ID',
-        selector: row => row.tenantId,
-        sortable: true,
-        cell: (row) => (
-            <Button href onClick={openFromParent}>
-                {row.tenantId}
-            </Button>
-        ),
-        
-        ignoreRowClick: true,
-        allowOverflow: true,
-        button: true,
-    },
-    {
-        name: 'Tenant Name',
-        selector: row => row.name,
-        sortable: true,
-    },
-    {
-        name: 'Status',
-        selector: row => row.tenantStatus,
-    },
-    {
-        name: 'Description',
-        selector: row => row.description,
-    },
-    {
-        name: 'Date Created',
-        selector: row => row.createdOn,
-    },
-    {
-        name: 'Date Modified',
-        selector: row => row.lastModifiedOn,
+    const [loaded, setLoaded] = React.useState(false);
+    const [loading, setLoading] = useState(false);
+    const [modalIsOpen, setIsOpen] = React.useState(false);
+    const [tenants, setTenants] = useState([]);
+
+    const getTenantList = async () => {
+        setLoading(true);
+
+
+        const response = await axios.get(
+            `http://localhost:8080/agBalance-ConfigTool/servlet/rest/test`
+        );
+
+
+        setTenants(response.data);
+
+        setLoading(false);
+
     }
-];
+
+    const columns = [
+        {
+            name: 'Tenant ID',
+            selector: row => row.tenantId,
+            sortable: true,
+            cell: (row) => (
+                <a  style={{float : 'left', paddingRight : '5px',color:'blue'}} onClick={openFromParent}>
+                    {row.tenantId}
+                </a>
+            ),
+
+            ignoreRowClick: true,
+            allowOverflow: true,
+            button: true,
+        },
+        {
+            name: 'Tenant Name',
+            selector: row => row.name,
+            sortable: true,
+        },
+        {
+            name: 'Status',
+            selector: row => row.tenantStatus,
+        },
+        {
+            name: 'Description',
+            selector: row => row.description,
+        },
+        {
+            name: 'Date Created',
+            selector: row => row.createdOn,
+        },
+        {
+            name: 'Date Modified',
+            selector: row => row.lastModifiedOn,
+        }
+    ];
 
     let modalData = {
         title: 'New Tenant',
-      };
-      const [modalIsOpen, setIsOpen] = React.useState(false);
-      const [tenants, setTenants] = React.useState({});
+    };
 
-      const getTenantList = () => {
-        
-        axios.get(`http://localhost:8080/agBalance-ConfigTool/servlet/rest/test`).then(res => {
-            setTenants(res.data);
-        }).catch(err => {
-            setTenants({});
-        });
-      }
+
+
+
 
 
     function openFromParent() {
-        modalData.title='Edit Tenant'
+        modalData.title = 'Edit Tenant'
         setIsOpen(true);
-        
-      }
 
-      useEffect(() => {
-        getTenantList();
-      });
-      
+    }
 
-    
-      function handleCloseModal(event, data) {
+    useEffect(() => {
+        if (!loaded) {
+            console.log("running");
+            getTenantList();
+            setLoaded(true);
+        }
+
+    }, [loaded]);
+
+
+
+    function handleCloseModal(event, data) {
         console.log(event, data);
         setIsOpen(false);
-      }
-    
-      function handleAfterOpen(event, data) {
-        console.log(event, data);
-      }
+    }
 
-      
+    function handleAfterOpen(event, data) {
+        console.log(event, data);
+    }
+
+
     return (
         <>
-       
-            
-
-<MyModalComponent
-        dynData={modalData}
-        IsModalOpened={modalIsOpen}
-        onCloseModal={handleCloseModal}
-        onAfterOpen={handleAfterOpen}
-      />
 
 
-            <DataTable 
+
+            <MyModalComponent
+                dynData={modalData}
+                IsModalOpened={modalIsOpen}
+                onCloseModal={handleCloseModal}
+                onAfterOpen={handleAfterOpen}
+            />
+
+
+            <DataTable
                 title={
                     <div > <span className="newSubHeading">Tentants</span>
                         <span class="btnRight">
@@ -112,11 +129,12 @@ const columns = [
                 }
                 columns={columns}
                 data={tenants}
+                progressComponent={!loaded}
                 pagination
                 highlightOnHover
                 pointerOnHover
             />
-  
+
         </>
     );
 }

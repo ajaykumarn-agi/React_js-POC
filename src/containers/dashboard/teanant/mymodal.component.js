@@ -36,6 +36,7 @@ function MyModalComponent(props) {
     props.onCloseModal(event, data);
   }
 
+  
   return (
     <div>
       <Modal scrollable={true}

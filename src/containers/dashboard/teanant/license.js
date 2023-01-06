@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import DataSource from './dataSourceAccess';
 function License( {selectedRow}) {
-
+    let test =  Object.keys(selectedRow.tenantLicense.licenseManager.licModel.appLicenseModules);
     return (
         <div>
             <Card style={{ width: '100%' }}>
@@ -44,7 +44,9 @@ function License( {selectedRow}) {
                 <Card.Body>
                     <Card.Title>Data Source Access</Card.Title>
                     <Card.Text>
-                        <DataSource/>
+
+                   
+                        <DataSource dbSources = {test}/>
                     </Card.Text>
                 </Card.Body>
             </Card>

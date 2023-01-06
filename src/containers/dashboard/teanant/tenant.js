@@ -38,6 +38,8 @@ function Tenant() {
 
     }
 
+   
+
     const columns = [
         {
             name: 'Tenant ID',
@@ -142,7 +144,7 @@ function Tenant() {
                 }
                 columns={columns}
                 data={tenants}
-                progressComponent={!loaded}
+                progressPending={loading}
                 pagination
                 highlightOnHover
                 pointerOnHover

@@ -33,7 +33,7 @@ class Tabs extends Component {
         <ol className="tab-list">
           {children.map((child) => {
             console.log(child)
-            if (child.props != undefined) {
+            if (child.props !== undefined) {
               const { label } = child.props;
 
               return (
@@ -54,7 +54,7 @@ class Tabs extends Component {
         </Breadcrumb>
         <div className="tab-content">
           {children.map((child) => {
-            if (child.props == undefined || child.props.label !== activeTab)
+            if (child.props === undefined || child.props.label !== activeTab)
               return undefined;
             return child.props.children;
           })}

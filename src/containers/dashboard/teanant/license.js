@@ -17,7 +17,7 @@ function License( {selectedRow}) {
                                 <Form.Label>Effective Date :</Form.Label>
                             </Col>
                             <Col>
-                                <Form.Label>********</Form.Label>
+                                <Form.Label>{selectedRow.tenantLicense.licenseManager.licModel.effectiveDate}</Form.Label>
                             </Col>
                         </Row>
                         <Row className="mb-3">
@@ -25,7 +25,7 @@ function License( {selectedRow}) {
                                 <Form.Label>Expiry Date :</Form.Label>
                             </Col>
                             <Col>
-                                <Form.Label>********</Form.Label>
+                                <Form.Label>{selectedRow.tenantLicense.licenseManager.licModel.expiryDate}</Form.Label>
                             </Col>
                         </Row>
                         <Row className="mb-3">
@@ -33,7 +33,7 @@ function License( {selectedRow}) {
                                 <Form.Label>Max. Active Users :</Form.Label>
                             </Col>
                             <Col>
-                                <Form.Label>100</Form.Label>
+                                <Form.Label>{selectedRow.tenantLicense.licenseManager.licModel.maxActiveUsers}</Form.Label>
                             </Col>
                         </Row>
                     </Card.Text>

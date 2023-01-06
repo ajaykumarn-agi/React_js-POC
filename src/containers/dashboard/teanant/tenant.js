@@ -40,7 +40,7 @@ function Tenant() {
 
     const columns = [
         {
-            title: 'Tenant ID',
+            name: 'Tenant ID',
             selector: row => row.tenantId,
             sortable: true,
             cell: (row) => (
@@ -77,12 +77,6 @@ function Tenant() {
             selector: row => row.lastModifiedOn,
         }
     ];
-
-    
-
-
-
-
 
 
     function openFromParent() {

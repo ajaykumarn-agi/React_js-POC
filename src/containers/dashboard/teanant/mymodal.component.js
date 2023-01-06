@@ -63,21 +63,21 @@ function MyModalComponent(props) {
                 <DefaultTenCre selectedRow={props.dynData.selectedRow} />
               </div>
             </div>
-            {props.dynData.isNew == false ?
+            {props.dynData.isNew === false ?
               <div label="DB Details">
                 <DbDetail selectedRow={props.dynData.selectedRow} />
               </div>
               : ''}
-            {props.dynData.isNew == false ?
+            {props.dynData.isNew === false ?
               <div label="License">
-                <License />
+                <License selectedRow={props.dynData.selectedRow}/>
               </div>
               : ''}
-            {props.dynData.isNew == false ?
+            {props.dynData.isNew === false ?
               <div label="Schedulers">
                 <TenSchedulers selectedRow={props.dynData.selectedRow} />
               </div> : ''}
-            {props.dynData.isNew == false ?
+            {props.dynData.isNew === false ?
               <div label="IdP">
                 <IdpTenant selectedRow={props.dynData.selectedRow} />
               </div>

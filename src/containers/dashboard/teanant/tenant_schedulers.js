@@ -1,8 +1,15 @@
-import React from 'react';
+import { render } from '@testing-library/react';
+import React, { Component } from 'react';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
-function TenSchedulers( {selectedRow} ) {
-
+class TenSchedulers extends Component {
+    constructor(props){
+        super(props)
+    }
+     handleChange =(event) =>{
+        this.props.parentMethod(event);
+      }
+      render(){
     return (
         <div>
             <Card style={{ width: '100%' }}>
@@ -12,7 +19,8 @@ function TenSchedulers( {selectedRow} ) {
                     <Form.Control
                         as="textarea"
                         style={{ height: '100px' }}
-                        defaultValue = {selectedRow.schedulerConfig.configuration}
+                        defaultValue = {this.props.selectedRow.schedulerConfig !== null?this.props.selectedRow.schedulerConfig.configuration:""} name="configuration"
+                        onChange={this.handleChange}
                         />
                     </Card.Text>
                 </Card.Body>
@@ -22,6 +30,7 @@ function TenSchedulers( {selectedRow} ) {
 
 
     );
+}
 }
 
 export default TenSchedulers;

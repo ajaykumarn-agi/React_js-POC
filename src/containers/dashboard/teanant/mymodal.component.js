@@ -19,6 +19,8 @@ import Tabs from '../../../components/Tabs';
 import PropTypes from "prop-types";
 import { computeStyles } from '@popperjs/core';
 
+import axios from "axios";
+
 
 
 
@@ -56,7 +58,7 @@ export default class MyModalComponent extends React.Component {
 
      super(props)
 
-      this.state =props.dynData.selectedRow;
+      this.state = props.dynData.selectedRow;
 
 
       this.childRef = React.createRef();
@@ -69,15 +71,10 @@ export default class MyModalComponent extends React.Component {
 
    }
 
- 
-
- 
-
-
-
   afterOpenModal(e) {
 
     console.log( this.props)
+    this.state = this.props.dynData.selectedRow;
 
     const isNew =  this.props.dynData.isNew;
 
@@ -102,6 +99,8 @@ export default class MyModalComponent extends React.Component {
 
   onClick = e=> {
     console.log(this.state)
+    axios.post('http://localhost:8080/agBalance-ConfigTool/servlet/rest/saveTeantDetails', this.state)
+    .then(response => this.setState({ articleId: response.data.id }));
    
  }
 
@@ -110,11 +109,25 @@ export default class MyModalComponent extends React.Component {
 }
 
 handleDBDetailsChange = e=> {
-  let dbDetail = this.state.tenantDbDetails;
   let key1 = e.target.name;
   let value = e.target.value;
-  dbDetail[key1]= value;
-  this.setState({tenantDbDetails:dbDetail})
+  let dbDetail = this.state.tenantDbDetails;
+  if(dbDetail === null){
+    dbDetail = {};
+    dbDetail[key1]= value;
+    this.setState({tenantDbDetails:dbDetail})
+  }
+
+
+Object.keys(dbDetail).forEach(function(key) {
+
+    if(key===key1) {
+
+      dbDetail[key]= value;
+
+    }
+
+  });  this.setState({tenantDbDetails:dbDetail})
 }
 
 handleLicenseChange = e=> {
@@ -123,10 +136,12 @@ handleLicenseChange = e=> {
 
 handleSchedulerChange = e=> {
   // this.setState({[e.target.name]: e.target.value});
+  console.log(this.state)
 }
 
 handleIDPchange = e=> {
   // this.setState({[e.target.name]: e.target.value});
+  console.log(this.state)
 }
 
  

@@ -5,11 +5,11 @@ function IdpTenant({selectedRow}) {
     <Form>
       <Form.Group className="mt-3 mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>SSO URL</Form.Label>
-        <Form.Control type="text"  value={selectedRow.tenantSsoModel.ssoUrl}/>
+        <Form.Control type="text"  defaultValue={selectedRow.tenantSsoModel.ssoUrl}/>
       </Form.Group>
       <Form.Group className="mb-1" controlId="exampleForm.ControlInput2">
         <Form.Label>Idp Entity Id</Form.Label>
-        <Form.Control type="text" value={selectedRow.tenantSsoModel.entityId} />
+        <Form.Control type="text" defaultValue={selectedRow.tenantSsoModel.entityId} />
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
         <Form.Label>IdP File</Form.Label>

@@ -44,8 +44,6 @@ function License( {selectedRow}) {
                 <Card.Body>
                     <Card.Title>Data Source Access</Card.Title>
                     <Card.Text>
-
-                   
                         <DataSource dbSources = {test}/>
                     </Card.Text>
                 </Card.Body>

@@ -1,13 +1,19 @@
 import Card from 'react-bootstrap/Card';
+import {Row,Col} from 'react-bootstrap';
 
 function DataSource({dbSources}) {
     console.log(dbSources)
     return (
         <div>
         {dbSources.map(name => (
-            <li>
-                {name}
-            </li>
+           <Card>
+                 <Row className="show-grid">
+                    <Col>
+                        {name}
+                    </Col>
+                </Row>
+                    
+            </Card>
         )
         
         )}

@@ -12,7 +12,7 @@ function TenSchedulers( {selectedRow} ) {
                     <Form.Control
                         as="textarea"
                         style={{ height: '100px' }}
-                        value = {selectedRow.schedulerConfig.configuration}
+                        defaultValue = {selectedRow.schedulerConfig.configuration}
                         />
                     </Card.Text>
                 </Card.Body>

@@ -13,10 +13,13 @@
     "react-bootstrap-validation": "^0.1.11",
     "react-data-table-component": "^7.5.3",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.41.5",
     "react-icons": "^4.7.1",
     "react-modal": "^3.16.1",
+    "react-responsive-modal": "^6.4.1",
     "react-router-dom": "^6.6.1",
     "react-scripts": "^5.0.1",
+    "styled-components": "^5.3.6",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

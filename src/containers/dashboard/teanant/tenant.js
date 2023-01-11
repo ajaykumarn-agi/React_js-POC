@@ -8,7 +8,6 @@ import axios from "axios";
 
 
 
-
 function Tenant() {
     const [loaded, setLoaded] = React.useState(false);
     const [loading, setLoading] = useState(false);
@@ -25,7 +24,7 @@ function Tenant() {
 
     const getTenantList = async () => {
         setLoading(true);
-
+        
 
         const response = await axios.get(
             `http://localhost:8080/agBalance-ConfigTool/servlet/rest/test`
@@ -121,9 +120,6 @@ function Tenant() {
 
     return (
         <>
-
-
-
             <MyModalComponent
                 dynData={parentData}
                 IsModalOpened={modalIsOpen}

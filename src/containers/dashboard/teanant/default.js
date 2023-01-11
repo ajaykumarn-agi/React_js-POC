@@ -24,6 +24,7 @@ constructor(props) {
       this.handleTenaNameChange = this.handleTenaNameChange.bind(this);
       this.handleStatusChange = this.handleStatusChange.bind(this);
       this.handleDescriChange = this.handleDescriChange.bind(this);
+      this.handleChange = this.handleChange.bind(this);
 
  }
 
@@ -40,11 +41,23 @@ constructor(props) {
     console.log(this.state);
 }
 
-handleTenaChange(e) {
+// handleChange(e) {
+//   this.setState({[e.target.name]: e.target.value});
+//   // this.props.selectedRow.[e.target.name] = e.target.value;
+//   this.props.selectedRow = this.state;
+// }
 
+handleTenaChange(e) {
+  console.log( e.target.name)
+  this.props.selectedRow.tenantId = e.target.value;
     this.setState({tenantId: e.target.value});
 
  }
+
+
+ handleChange  = (event)=> {
+  this.props.parentMethod(event);
+}
 
 handleTenaNameChange(e) {
 
@@ -68,6 +81,7 @@ handleTenaNameChange(e) {
 
 return (
 
+  
     <Form ref={this.myRef}>
 
     <fieldset title='Default'>
@@ -78,8 +92,10 @@ return (
 
       <Form.Label>Tenant ID</Form.Label>
 
-      <Form.Control type="text" placeholder="Enter tenant id" defaultValue={this.props.selectedRow.tenantId} onChange={this.handleTenaChange}/>
-
+      <Form.Control type="text" placeholder="Enter tenant id" name="tenantId" defaultValue={this.props.selectedRow.tenantId} 
+ onChange={this.handleChange}
+      
+      />
      </Form.Group>
 
 
@@ -88,7 +104,7 @@ return (
 
       <Form.Label>Tenant Name</Form.Label>
 
-      <Form.Control type="text" placeholder="Enter tenant name" defaultValue={this.props.selectedRow.name} onChange={this.handleTenaNameChange}/>
+      <Form.Control type="text" placeholder="Enter tenant name" defaultValue={this.props.selectedRow.name} name="name" onChange={this.handleChange}/>
 
      </Form.Group>
 
@@ -100,7 +116,7 @@ return (
 
       <Form.Label>Status</Form.Label>
 
-      <Form.Select defaultValue="Inactive" value={this.props.selectedRow.tenantStatus} onChange={this.handleStatusChange}>
+      <Form.Select defaultValue="Inactive" value={this.props.selectedRow.tenantStatus} name ="tenantStatus" onChange={this.handleChange}>
 
        <option value={1}>Active</option>
 
@@ -117,20 +133,16 @@ return (
        <FloatingLabel controlId="floatingTextarea2">Description</FloatingLabel>
 
          <Form.Control
-
          as="textarea"
-
          style={{ height: '100px' }}
-
-         value={this.props.selectedRow.description} defaultValue={this.handleDescriChange}
+          name = "description"
+         defaultValue={this.props.selectedRow.description} onChange={this.handleChange}
 
          />
 
       </Form.Group>
 
     </Row>
-
-    <Button variant="primary" size="sm" onClick={this.handleSubmit} >Save</Button>
 
     </fieldset>
 

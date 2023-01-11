@@ -20,6 +20,11 @@ class DbDetail extends Component{
     this.handleLssrmSchemaChange=this.handleLssrmSchemaChange.bind(this);
 
   }
+
+  handleChange  = (event)=> {
+    this.props.parentMethod(event);
+  }
+
   handleLssrmHostChange(e){
     this.setState({msHost: e.target.value});
     console.log(this.props.selectedRow)
@@ -58,29 +63,29 @@ render(){
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridLSSRMHost">
           <Form.Label>Host</Form.Label>
-          <Form.Control type="text" defaultValue={this.props.selectedRow.tenantDbDetails.msHost} name ="msHost"  onChange={this.handleLssrmHostChange}/>
+          <Form.Control type="text" defaultValue={this.props.selectedRow.tenantDbDetails.msHost} name ="msHost"   onChange={this.handleChange}/>
         </Form.Group>
 
         <Form.Group as={Col} controlId="formGridLSSRMPor">
           <Form.Label>Port</Form.Label>
-          <Form.Control type="number" defaultValue={this.props.selectedRow.tenantDbDetails.msPort} name ="msPort"  onChange={this.handleLssrmPortChange} />
+          <Form.Control type="number" defaultValue={this.props.selectedRow.tenantDbDetails.msPort} name ="msPort"   onChange={this.handleChange} />
         </Form.Group>
       </Row>
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridUserLSSRMName">
           <Form.Label>UserName</Form.Label>
-          <Form.Control type="text" defaultValue={this.props.selectedRow.tenantDbDetails.msUserName}  name ="msUserName"  onChange={this.handleLssrmUserNameChange}/>
+          <Form.Control type="text" defaultValue={this.props.selectedRow.tenantDbDetails.msUserName}  name ="msUserName"   onChange={this.handleChange}/>
         </Form.Group>
 
         <Form.Group as={Col} controlId="formGridLSSRMPass">
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password"  defaultValue={this.props.selectedRow.tenantDbDetails.msPassword} name ="msPassword"  onChange={this.handleLssrmPassChange}/>
+          <Form.Control type="password"  defaultValue={this.props.selectedRow.tenantDbDetails.msPassword} name ="msPassword"  onChange={this.handleChange}/>
         </Form.Group>
       </Row>
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridLSSRMUserName">
           <Form.Label>Schema Name</Form.Label>
-          <Form.Control type="text" defaultValue={this.props.selectedRow.tenantDbDetails.msSchemaName} name ="msSchemaName"  onChange={this.handleLssrmSchemaChange}/>
+          <Form.Control type="text" defaultValue={this.props.selectedRow.tenantDbDetails.msSchemaName} name ="msSchemaName"   onChange={this.handleChange}/>
         </Form.Group>
 
          <Form.Group as={Col} controlId="formGridLSSRM">
@@ -93,29 +98,29 @@ render(){
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridCsHost">
           <Form.Label>Host</Form.Label>
-          <Form.Control type="text" defaultValue={this.props.selectedRow.tenantDbDetails.csHost} name ="csHost"  onChange={this.handleLssrmChange}/>
+          <Form.Control type="text" defaultValue={this.props.selectedRow.tenantDbDetails.csHost} name ="csHost"   onChange={this.handleChange}/>
         </Form.Group>
 
         <Form.Group as={Col} controlId="formGridCsPort">
           <Form.Label>Port</Form.Label>
-          <Form.Control type="number" defaultValue={this.props.selectedRow.tenantDbDetails.csPort}  name ="csPort"  onChange={this.handleLssrmChange}/>
+          <Form.Control type="number" defaultValue={this.props.selectedRow.tenantDbDetails.csPort}  name ="csPort"   onChange={this.handleChange}/>
         </Form.Group>
       </Row>
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridCsUserName">
           <Form.Label>UserName</Form.Label>
-          <Form.Control type="text" defaultValue={this.props.selectedRow.tenantDbDetails.csUserName} name ="csUserName"  onChange={this.handleLssrmChange}/>
+          <Form.Control type="text" defaultValue={this.props.selectedRow.tenantDbDetails.csUserName} name ="csUserName"   onChange={this.handleChange}/>
         </Form.Group>
 
         <Form.Group as={Col} controlId="formGridCsPass">
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" defaultValue={this.props.selectedRow.tenantDbDetails.csPassword} name ="csPassword"  onChange={this.handleLssrmChange} />
+          <Form.Control type="password" defaultValue={this.props.selectedRow.tenantDbDetails.csPassword} name ="csPassword"  on onChange={this.handleChange} />
         </Form.Group>
       </Row>
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridCsSchemaName">
           <Form.Label>Schema Name</Form.Label>
-          <Form.Control type="text" defaultValue={this.props.selectedRow.tenantDbDetails.csSchemaName} name ="csSchemaName"  onChange={this.handleLssrmSchemaChange}/>
+          <Form.Control type="text" defaultValue={this.props.selectedRow.tenantDbDetails.csSchemaName} name ="csSchemaName"   onChange={this.handleChange}/>
         </Form.Group>
 
          <Form.Group as={Col} controlId="formGridCs">
@@ -128,29 +133,29 @@ render(){
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridMlHost">
           <Form.Label>Host</Form.Label>
-          <Form.Control type="text" defaultValue={this.props.selectedRow.tenantDbDetails.mlHost} name ="mlHost"  onChange={this.handleLssrmChange} />
+          <Form.Control type="text" defaultValue={this.props.selectedRow.tenantDbDetails.mlHost} name ="mlHost"  onChange={this.handleChange} />
         </Form.Group>
 
         <Form.Group as={Col} controlId="formGridMlPor">
           <Form.Label>Port</Form.Label>
-          <Form.Control type="number"  defaultValue={this.props.selectedRow.tenantDbDetails.mlPort} name ="mlPort"  onChange={this.handleLssrmChange} />
+          <Form.Control type="number"  defaultValue={this.props.selectedRow.tenantDbDetails.mlPort} name ="mlPort"   onChange={this.handleChange} />
         </Form.Group>
       </Row>
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridMlUserName">
           <Form.Label>UserName</Form.Label>
-          <Form.Control type="text"  defaultValue={this.props.selectedRow.tenantDbDetails.mlUserName}  name ="mlUserName"  onChange={this.handleLssrmChange}/>
+          <Form.Control type="text"  defaultValue={this.props.selectedRow.tenantDbDetails.mlUserName}  name ="mlUserName"  onChange={this.handleChange}/>
         </Form.Group>
 
         <Form.Group as={Col} controlId="formGridMlPass">
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" defaultValue={this.props.selectedRow.tenantDbDetails.mlPassword}  name ="mlPassword"  onChange={this.handleLssrmChange} />
+          <Form.Control type="password" defaultValue={this.props.selectedRow.tenantDbDetails.mlPassword}  name ="mlPassword"   onChange={this.handleChange} />
         </Form.Group>
       </Row>
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridMlSchema">
           <Form.Label>Schema Name</Form.Label>
-          <Form.Control type="text" defaultValue={this.props.selectedRow.tenantDbDetails.mlSchemaName} name ="mlSchemaName"  onChange={this.handleLssrmSchemaChange}/>
+          <Form.Control type="text" defaultValue={this.props.selectedRow.tenantDbDetails.mlSchemaName} name ="mlSchemaName"  onChange={this.handleChange}/>
         </Form.Group>
 
          <Form.Group as={Col} controlId="formGridMl">
@@ -164,29 +169,29 @@ render(){
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridHost">
           <Form.Label>Host</Form.Label>
-          <Form.Control type="text" defaultValue={this.props.selectedRow.tenantDbDetails.studyHost} name ="studyHost"  onChange={this.handleLssrmChange}/>
+          <Form.Control type="text" defaultValue={this.props.selectedRow.tenantDbDetails.studyHost} name ="studyHost"   onChange={this.handleChange}/>
         </Form.Group>
 
         <Form.Group as={Col} controlId="formGridPor">
           <Form.Label>Port</Form.Label>
-          <Form.Control type="number" defaultValue={this.props.selectedRow.tenantDbDetails.studyPort} name ="studyPort"  onChange={this.handleLssrmChange} />
+          <Form.Control type="number" defaultValue={this.props.selectedRow.tenantDbDetails.studyPort} name ="studyPort"  onChange={this.handleChange} />
         </Form.Group>
       </Row>
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridUserName">
           <Form.Label>UserName</Form.Label>
-          <Form.Control type="text"  defaultValue={this.props.selectedRow.tenantDbDetails.studyUserName} name ="studyUserName"  onChange={this.handleLssrmChange}/>
+          <Form.Control type="text"  defaultValue={this.props.selectedRow.tenantDbDetails.studyUserName} name ="studyUserName"   onChange={this.handleChange}/>
         </Form.Group>
 
         <Form.Group as={Col} controlId="formGridPass">
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" defaultValue={this.props.selectedRow.tenantDbDetails.studyPassword} name ="studyPassword"  onChange={this.handleLssrmChange}/>
+          <Form.Control type="password" defaultValue={this.props.selectedRow.tenantDbDetails.studyPassword} name ="studyPassword"   onChange={this.handleChange}/>
         </Form.Group>
       </Row>
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridUserName">
           <Form.Label>Schema Name</Form.Label>
-          <Form.Control type="text" defaultValue={this.props.selectedRow.tenantDbDetails.studySchemaName} name ="studySchemaName"  onChange={this.handleLssrmSchemaChange}/>
+          <Form.Control type="text" defaultValue={this.props.selectedRow.tenantDbDetails.studySchemaName} name ="studySchemaName"  onChange={this.handleChange}/>
         </Form.Group>
 
          <Form.Group as={Col} controlId="formGridPass">

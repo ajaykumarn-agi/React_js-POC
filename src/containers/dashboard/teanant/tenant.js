@@ -45,11 +45,11 @@ function Tenant() {
             selector: row => row.tenantId,
             sortable: true,
             cell: (row) => (
-                <a  style={{float : 'left', paddingRight : '5px',color:'blue'}} onClick={
+                <p style={{float : 'left', paddingRight : '5px',color:'blue'}} onClick={
                     (e) => openFromParentRow(e,row)
                     }>
                     {row.tenantId}
-                </a>
+                </p>
             ),
 
             ignoreRowClick: true,

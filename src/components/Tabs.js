@@ -32,7 +32,6 @@ class Tabs extends Component {
       <div className="tabs">
         <ol className="tab-list">
           {children.map((child) => {
-            console.log(child)
             if (child.props !== undefined) {
               const { label } = child.props;
 

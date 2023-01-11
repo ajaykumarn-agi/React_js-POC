@@ -6,16 +6,15 @@ import General from "./general/general";
 import Tenant from "./teanant/tenant";
 import CMS from "./cms/cms";
 import MailServer from "./mail_server/mail_server";
-import PSource from "./publicsources/publicsources";
 import './dashboard.css'
-
+import PSource from "./publicsources/publicsources";
 
 
 class Dashboard extends Component {
     render() {
         return (
             <div>
-                <Header />
+                {/* <Header /> */}
                 
                 <Tabs className="dashboard_body">
                     
@@ -36,7 +35,7 @@ class Dashboard extends Component {
                     </div>
                 </Tabs>
                 
-                <Footer />
+                {/* <Footer /> */}
             </div>
 
         )

@@ -17,6 +17,7 @@ import IdpTenant from './idpTenant';
 import Tabs from '../../../components/Tabs';
 
 import PropTypes from "prop-types";
+import { computeStyles } from '@popperjs/core';
 
 
 
@@ -51,23 +52,22 @@ const customStyles = {
 
 export default class MyModalComponent extends React.Component {
 
-  // constructor(props) {
+  constructor(props) {
 
-  //   super(props)
+     super(props)
 
-  //    this = {
+      this.state =props.dynData.selectedRow;
 
-  //     props:props
 
-  //   }
+      this.childRef = React.createRef();
 
-  //   // this.childRef = React.createRef();
+     this.afterOpenModal = this.afterOpenModal.bind(this);
 
-  //   this.afterOpenModal = this.afterOpenModal.bind(this);
+     this.onModalClose = this.onModalClose.bind(this);
 
-  //   this.onModalClose = this.onModalClose.bind(this);
+     this.onClick = this.onClick.bind(this);
 
-  // }
+   }
 
  
 
@@ -89,19 +89,45 @@ export default class MyModalComponent extends React.Component {
 
 
   onModalClose = e => {
-
+    console.log( this.props)
     let data = { name: 'example', type: 'closed from child' };
 
     this.props.onCloseModal && this.props.onCloseModal(e,data);
 
   };
 
+  simplifiedFunction(e) {
+    console.log(e)
+  }
 
-
-  onClick (event)  {
-
-    this.childRef.current.handleSubmit(event);
+  onClick = e=> {
+    console.log(this.state)
+   
  }
+
+ handleDefaultChange = e=> {
+  this.setState({[e.target.name]: e.target.value});
+}
+
+handleDBDetailsChange = e=> {
+  let dbDetail = this.state.tenantDbDetails;
+  let key1 = e.target.name;
+  let value = e.target.value;
+  dbDetail[key1]= value;
+  this.setState({tenantDbDetails:dbDetail})
+}
+
+handleLicenseChange = e=> {
+  // this.setState({[e.target.name]: e.target.value});
+}
+
+handleSchedulerChange = e=> {
+  // this.setState({[e.target.name]: e.target.value});
+}
+
+handleIDPchange = e=> {
+  // this.setState({[e.target.name]: e.target.value});
+}
 
  
 
@@ -154,7 +180,8 @@ export default class MyModalComponent extends React.Component {
 
               <div class="container">
 
-                <DefaultTenCre  ref={this.childRef} selectedRow={this.props.dynData.selectedRow} />
+                <DefaultTenCre selectedRow={this.props.dynData.selectedRow}  parentMethod={this.handleDefaultChange}>
+                </DefaultTenCre>
 
               </div>
 
@@ -164,7 +191,7 @@ export default class MyModalComponent extends React.Component {
 
               <div label="DB Details">
 
-                <DbDetail selectedRow={this.props.dynData.selectedRow} />
+                <DbDetail selectedRow={this.props.dynData.selectedRow}  parentMethod={this.handleDBDetailsChange}/>
 
               </div>
 
@@ -174,7 +201,7 @@ export default class MyModalComponent extends React.Component {
 
               <div label="License">
 
-                <License selectedRow={ this.props.dynData.selectedRow}/>
+                <License selectedRow={ this.props.dynData.selectedRow} parentMethod={this.handleLicenseChange}/>
 
               </div>
 
@@ -184,7 +211,7 @@ export default class MyModalComponent extends React.Component {
 
               <div label="Schedulers">
 
-                <TenSchedulers selectedRow={ this.props.dynData.selectedRow} />
+                <TenSchedulers selectedRow={ this.props.dynData.selectedRow} parentMethod={this.handleSchedulerChange} />
 
               </div> : ''}
 
@@ -192,7 +219,7 @@ export default class MyModalComponent extends React.Component {
 
               <div label="IdP">
 
-                <IdpTenant selectedRow={ this.props.dynData.selectedRow} />
+                <IdpTenant selectedRow={ this.props.dynData.selectedRow} parentMethod={this.handleIDPchange}/>
 
               </div>
 
